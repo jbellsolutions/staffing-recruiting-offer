@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Integrators — Staffing Vertical: Video Repurpose Map</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0A0A0F;
+    --bg2: #12121A;
+    --bg3: #1A1A25;
+    --red: #F87171;
+    --blue: #60A5FA;
+    --purple: #A78BFA;
+    --green: #34D399;
+    --yellow: #FBBF24;
+    --orange: #FB923C;
+    --pink: #F472B6;
+    --cyan: #22D3EE;
+    --crimson: #DC2626;
+    --ember: #EA580C;
+    --text: #E2E8F0;
+    --muted: #64748B;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* HEADER */
+  .header {
+    position: relative;
+    padding: 60px 24px 48px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(220,38,38,0.08) 0%, rgba(234,88,12,0.04) 50%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 350px;
+    background: radial-gradient(ellipse, rgba(220,38,38,0.12) 0%, rgba(234,88,12,0.06) 40%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 16px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 20%, var(--red) 60%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .header p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  .header .tagline {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: rgba(220,38,38,0.08);
+    border: 1px solid rgba(220,38,38,0.2);
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 48px 24px 100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* SECTION LABEL */
+  .sec-label {
+    text-align: center;
+    margin: 52px 0 28px;
+    position: relative;
+  }
+  .sec-label::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background: var(--border);
+  }
+  .sec-label span {
+    position: relative;
+    background: var(--bg);
+    padding: 0 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* CORE TRANSFORMATION */
+  .core-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 28px;
+    border-radius: 14px;
+    background: rgba(220,38,38,0.05);
+    border: 1px solid rgba(220,38,38,0.18);
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .core-value .node {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .node-src { background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.25); color: var(--red); }
+  .node-proc { background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.25); color: var(--blue); }
+  .node-out { background: rgba(234,88,12,0.12); border: 1px solid rgba(234,88,12,0.25); color: var(--orange); }
+  .node-arrow { color: var(--muted); font-size: 20px; }
+
+  /* PRIORITY ROW */
+  .priority-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  .priority-card {
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease both;
+  }
+  .priority-card:nth-child(1) { animation-delay: 0.1s; }
+  .priority-card:nth-child(2) { animation-delay: 0.2s; }
+  .priority-card:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .priority-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px; right: 10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    opacity: 0.04;
+    color: #fff;
+    line-height: 1;
+  }
+  .p-now { background: rgba(248,113,113,0.06); border: 1px solid rgba(248,113,113,0.2); }
+  .p-week { background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); }
+  .p-month { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.2); }
+  .priority-card .p-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+  .p-now .p-label { color: var(--red); }
+  .p-week .p-label { color: var(--yellow); }
+  .p-month .p-label { color: var(--green); }
+  .priority-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .priority-card p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* BUCKET GRID */
+  .buckets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+  }
+
+  .bucket {
+    border-radius: 14px;
+    padding: 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease both;
+  }
+  .bucket:nth-child(1) { animation-delay: 0.05s; }
+  .bucket:nth-child(2) { animation-delay: 0.1s; }
+  .bucket:nth-child(3) { animation-delay: 0.15s; }
+  .bucket:nth-child(4) { animation-delay: 0.2s; }
+  .bucket:nth-child(5) { animation-delay: 0.25s; }
+  .bucket:nth-child(6) { animation-delay: 0.3s; }
+
+  .bucket:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .bucket::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+  }
+
+  .bucket-promo::before { background: linear-gradient(90deg, var(--red), var(--orange)); }
+  .bucket-promo:hover { border-color: rgba(248,113,113,0.3); }
+
+  .bucket-lead::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+  .bucket-lead:hover { border-color: rgba(167,139,250,0.3); }
+
+  .bucket-web::before { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+  .bucket-web:hover { border-color: rgba(52,211,153,0.3); }
+
+  .bucket-product::before { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+  .bucket-product:hover { border-color: rgba(251,191,36,0.3); }
+
+  .bucket-community::before { background: linear-gradient(90deg, var(--orange), var(--red)); }
+  .bucket-community:hover { border-color: rgba(251,146,60,0.3); }
+
+  .bucket-sales::before { background: linear-gradient(90deg, var(--pink), var(--crimson)); }
+  .bucket-sales:hover { border-color: rgba(244,114,182,0.3); }
+
+  .bucket-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .bucket-icon {
+    width: 38px; height: 38px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .bucket-promo .bucket-icon { background: rgba(248,113,113,0.12); }
+  .bucket-lead .bucket-icon { background: rgba(167,139,250,0.12); }
+  .bucket-web .bucket-icon { background: rgba(52,211,153,0.12); }
+  .bucket-product .bucket-icon { background: rgba(251,191,36,0.12); }
+  .bucket-community .bucket-icon { background: rgba(251,146,60,0.12); }
+  .bucket-sales .bucket-icon { background: rgba(244,114,182,0.12); }
+
+  .bucket-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .bucket-count {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.6;
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+  }
+  .bucket-promo .bucket-title { color: var(--red); }
+  .bucket-lead .bucket-title { color: var(--purple); }
+  .bucket-web .bucket-title { color: var(--green); }
+  .bucket-product .bucket-title { color: var(--yellow); }
+  .bucket-community .bucket-title { color: var(--orange); }
+  .bucket-sales .bucket-title { color: var(--pink); }
+
+  .asset-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .asset-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #94A3B8;
+    line-height: 1.5;
+  }
+  .asset-item .bullet {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .bucket-promo .bullet { background: var(--red); }
+  .bucket-lead .bullet { background: var(--purple); }
+  .bucket-web .bullet { background: var(--green); }
+  .bucket-product .bullet { background: var(--yellow); }
+  .bucket-community .bullet { background: var(--orange); }
+  .bucket-sales .bullet { background: var(--pink); }
+  .asset-item strong { color: var(--text); font-weight: 600; }
+
+  /* PRODUCT LADDER */
+  .ladder {
+    margin-top: 16px;
+    padding: 28px;
+    border-radius: 14px;
+    background: rgba(220,38,38,0.04);
+    border: 1px solid rgba(220,38,38,0.12);
+  }
+  .ladder h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .ladder-steps {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .ladder-step {
+    flex: 1;
+    min-width: 160px;
+    max-width: 200px;
+    padding: 18px 14px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--border);
+    margin: 4px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .ladder-step:hover {
+    transform: translateY(-3px);
+  }
+  .ladder-step .step-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .ladder-step:nth-child(1) .step-price { color: var(--green); }
+  .ladder-step:nth-child(2) .step-price { color: var(--yellow); }
+  .ladder-step:nth-child(3) .step-price { color: var(--orange); }
+  .ladder-step:nth-child(4) .step-price { color: var(--red); }
+  .ladder-step:nth-child(5) .step-price { color: var(--crimson); }
+  .ladder-step:nth-child(1):hover { border-color: rgba(52,211,153,0.3); }
+  .ladder-step:nth-child(2):hover { border-color: rgba(251,191,36,0.3); }
+  .ladder-step:nth-child(3):hover { border-color: rgba(251,146,60,0.3); }
+  .ladder-step:nth-child(4):hover { border-color: rgba(248,113,113,0.3); }
+  .ladder-step:nth-child(5):hover { border-color: rgba(220,38,38,0.3); }
+  .ladder-step .step-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .ladder-step .step-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .ladder-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--muted);
+    font-size: 18px;
+    padding: 0 2px;
+  }
+
+  /* FOOTER STATS */
+  .count-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .count-cell {
+    text-align: center;
+    padding: 18px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    transition: transform 0.2s;
+  }
+  .count-cell:hover { transform: translateY(-2px); }
+  .count-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .count-lbl {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .count-cell:nth-child(1) .count-num { color: var(--red); }
+  .count-cell:nth-child(2) .count-num { color: var(--purple); }
+  .count-cell:nth-child(3) .count-num { color: var(--green); }
+  .count-cell:nth-child(4) .count-num { color: var(--yellow); }
+  .count-cell:nth-child(5) .count-num { color: var(--orange); }
+  .count-cell:nth-child(6) .count-num { color: var(--pink); }
+
+  .total-bar {
+    text-align: center;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(220,38,38,0.08), rgba(234,88,12,0.08));
+    border: 1px solid rgba(220,38,38,0.15);
+  }
+  .total-bar .total-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .total-bar .total-lbl {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .footer strong {
+    color: var(--text);
+  }
+
+  /* PULSE ANIMATION */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  .pulse { animation: pulse 2s ease-in-out infinite; }
+
+  @media (max-width: 768px) {
+    .priority-row { grid-template-columns: 1fr; }
+    .count-row { grid-template-columns: repeat(3, 1fr); }
+    .core-value { gap: 10px; }
+    .node-arrow { display: none; }
+    .ladder-steps { flex-direction: column; align-items: center; }
+    .ladder-arrow { transform: rotate(90deg); padding: 4px 0; }
+    .buckets { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">AI Integrators &middot; Staffing & Recruiting Vertical</div>
+  <h1>1 Demo Video &rarr;<br>Every Sales Asset You Need</h1>
+  <p>One staffing AI demo recording, processed through Claude Code, becomes 35+ assets across promotion, lead gen, website, products, community, and sales.</p>
+  <div class="tagline">Staffing Agency AI Playbook &mdash; Full Repurpose & Monetization Map</div>
+</div>
+
+<div class="container">
+
+  <!-- CORE TRANSFORMATION -->
+  <div class="sec-label"><span>The Core Transformation</span></div>
+  <div class="core-value">
+    <div class="node node-src">&#127916; 1 Demo Recording<br><small style="font-weight:400;opacity:0.7">Staffing AI Integrator pitch / demo video</small></div>
+    <div class="node-arrow">&rarr;</div>
+    <div class="node node-proc">&#9889; Claude Code Processing<br><small style="font-weight:400;opacity:0.7">Transcript + repurpose prompts + copy style</small></div>
+    <div class="node-arrow">&rarr;</div>
+    <div class="node node-out">&#128640; 35+ Staffing Sales Assets<br><small style="font-weight:400;opacity:0.7">Across 6 revenue & distribution channels</small></div>
+  </div>
+
+  <!-- PRIORITY ORDER -->
+  <div class="sec-label"><span>Priority Order</span></div>
+  <div class="priority-row">
+    <div class="priority-card p-now" data-num="1">
+      <div class="p-label">Do Now</div>
+      <h4>Record the Demo Video + Embed on Landing Page</h4>
+      <p>Record the staffing AI pitch/demo. Embed it as the hero on your opt-in landing page. This single asset powers everything else on this map.</p>
+    </div>
+    <div class="priority-card p-week" data-num="2">
+      <div class="p-label">This Week</div>
+      <h4>Lead Magnet + Email Sequence + First Cold Outreach</h4>
+      <p>Turn the demo into the "Staffing Agency AI Playbook" PDF. Load the 7-email nurture. Send the first 100 cold emails to IT staffing agencies.</p>
+    </div>
+    <div class="priority-card p-month" data-num="3">
+      <div class="p-label">This Month</div>
+      <h4>Full Content Engine + Retargeting + Workshop</h4>
+      <p>All 12 LinkedIn posts live. Retargeting ads running (30/60/90 sec). YouTube Shorts published. Workshop scheduled. The flywheel is spinning.</p>
+    </div>
+  </div>
+
+  <!-- 6 BUCKETS -->
+  <div class="sec-label"><span>All 6 Repurposing Channels</span></div>
+  <div class="buckets">
+
+    <!-- PROMOTION -->
+    <div class="bucket bucket-promo">
+      <div class="bucket-header">
+        <div class="bucket-icon">&#128227;</div>
+        <div class="bucket-title">Promotion & Distribution</div>
+        <span class="bucket-count">8 assets</span>
+      </div>
+      <ul class="asset-list">
+        <li class="asset-item"><span class="bullet"></span><div><strong>YouTube main video</strong> &mdash; Full demo with intro/outro, captions, chapters. Title: <em>"How AI 5x's Recruiter Capacity in 30 Days"</em></div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>5 YouTube Shorts</strong> &mdash; Hook moments: the resume screening stat, no-show prediction reveal, compliance automation before/after, ROI math, and CTA clip</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>LinkedIn native video</strong> &mdash; B2B angle: "We deployed AI into a 40-person staffing agency. Here's what happened in 30 days."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Podcast clip / audio pull</strong> &mdash; Strip audio for Spotify episode. Framed as "The Future of Staffing" solo episode</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Twitter/X video clip</strong> &mdash; 60-sec hook + CTA. "Your recruiters are spending 5.5 hrs/day reading resumes. AI does it in 12 minutes."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Skool community post</strong> &mdash; Pin as orientation content with video embed. "This is what we build for staffing agencies."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Instagram Reel</strong> &mdash; Vertical format, staffing-specific hook: "Every staffing agency has the same 7 bottlenecks..."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Email blast</strong> &mdash; Send to both agency owner list and integrator list. Subject: "Watch: AI just changed staffing forever."</div></li>
+      </ul>
+    </div>
+
+    <!-- LEAD GENERATION -->
+    <div class="bucket bucket-lead">
+      <div class="bucket-header">
+        <div class="bucket-icon">&#129528;</div>
+        <div class="bucket-title">Lead Generation Assets</div>
+        <span class="bucket-count">6 assets</span>
+      </div>
+      <ul class="asset-list">
+        <li class="asset-item"><span class="bullet"></span><div><strong>"Staffing Agency AI Playbook" PDF</strong> &mdash; 12-page lead magnet. The 7 automations, the ROI math, 3 case studies. Primary opt-in offer</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Opt-in landing page with video embed</strong> &mdash; Demo video above the fold as proof. Form below. 3 headline variants for A/B testing</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>7-email nurture sequence</strong> &mdash; Day 0: Industry crisis. Day 2: 3 lies. Day 4: IT case study. Day 7: Mechanism. Day 10: Math. Day 14: Healthcare. Day 17: Full offer</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>"AI-Staffing Starter Kit" ($47 tripwire)</strong> &mdash; 5 pre-built automation templates + 15-min video walkthrough. Low friction, immediate value</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Recruiter productivity checklist</strong> &mdash; 1-page PDF: "10 Tasks Your Recruiters Do Daily That AI Should Handle." High shareability</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Claude Code prompt templates for staffing</strong> &mdash; The exact prompts used to build staffing automations. Drives tool adoption + certification interest</div></li>
+      </ul>
+    </div>
+
+    <!-- WEBSITE -->
+    <div class="bucket bucket-web">
+      <div class="bucket-header">
+        <div class="bucket-icon">&#127760;</div>
+        <div class="bucket-title">Website Placements</div>
+        <span class="bucket-count">5 assets</span>
+      </div>
+      <ul class="asset-list">
+        <li class="asset-item"><span class="bullet"></span><div><strong>Homepage hero video embed</strong> &mdash; "See what AI does for staffing agencies" &mdash; the demo playing above the fold. Show, don't tell</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>"See It In Action" demo page</strong> &mdash; Full breakdown: video embed + annotated steps + results + CTA to lead magnet or assessment call</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>4 case study pages</strong> &mdash; IT staffing, healthcare staffing, light industrial, and executive search. Each with vertical-specific results and video clips</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Certification proof section</strong> &mdash; 60-sec clip embedded on certification page. "This is what our trained integrators build." Social proof</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Blog / SEO article</strong> &mdash; "How AI Is Transforming Staffing Agency Operations" &mdash; 1,500 words, video inline, targets long-tail keywords</div></li>
+      </ul>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="bucket bucket-product">
+      <div class="bucket-header">
+        <div class="bucket-icon">&#128230;</div>
+        <div class="bucket-title">Paid Products</div>
+        <span class="bucket-count">5 assets</span>
+      </div>
+      <ul class="asset-list">
+        <li class="asset-item"><span class="bullet"></span><div><strong>The 3-Tier Offer</strong> &mdash; Starter ($1,000 + $300/mo), Professional ($2,000 + $300/mo), Enterprise ($5,000 + $300/mo, 90-day). Demo video is the proof</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Webinar / workshop content</strong> &mdash; Demo video becomes Module 1. Live workshop: attendees see the system, then book assessment calls</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Agency-type specific playbooks</strong> &mdash; IT staffing, healthcare, light industrial, exec search. Each tailored to vertical-specific pain points</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>ROI calculator</strong> &mdash; Interactive tool: input agency size, recruiters, monthly placements &rarr; see projected savings and capacity gains</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>VIP assessment day</strong> &mdash; Premium $2,500+ offer: full agency audit, custom deployment plan, on-site or virtual. Upsell from discovery calls</div></li>
+      </ul>
+    </div>
+
+    <!-- COMMUNITY -->
+    <div class="bucket bucket-community">
+      <div class="bucket-header">
+        <div class="bucket-icon">&#127969;</div>
+        <div class="bucket-title">Community & Engagement</div>
+        <span class="bucket-count">5 assets</span>
+      </div>
+      <ul class="asset-list">
+        <li class="asset-item"><span class="bullet"></span><div><strong>5-day challenge: "Automate Your First Recruiting Workflow"</strong> &mdash; Day 1 uses the demo video as orientation. Each day builds one automation concept</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Live Q&A / office hours</strong> &mdash; Post the demo video first, then announce: "I'll walk you through this system in real time. Bring your questions."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Community homework post</strong> &mdash; "Watch the demo. Drop your agency's #1 recruiting bottleneck in the comments." Drives 50+ replies</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Referral hook</strong> &mdash; "Know a staffing agency owner still screening resumes by hand? Send them this video." Organic reach play</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Skool orientation pin</strong> &mdash; Featured content at top of community: "Start here. This is what AI Integrators build for staffing agencies."</div></li>
+      </ul>
+    </div>
+
+    <!-- SALES -->
+    <div class="bucket bucket-sales">
+      <div class="bucket-header">
+        <div class="bucket-icon">&#128176;</div>
+        <div class="bucket-title">Sales & Conversion</div>
+        <span class="bucket-count">6 assets</span>
+      </div>
+      <ul class="asset-list">
+        <li class="asset-item"><span class="bullet"></span><div><strong>Discovery call closer</strong> &mdash; Send demo video in pre-call prep email: "Watch this 10-minute video before our call tomorrow." Warms every lead</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>20 cold email angles</strong> &mdash; Personalized by agency type (IT, healthcare, light industrial, exec search). Each references the demo or a specific stat from it</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Proposals with video embed</strong> &mdash; Every client proposal includes the demo video as proof of methodology. "Don't take our word for it &mdash; watch."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Retargeting ad creative (30/60/90 sec)</strong> &mdash; 30-sec: pain hook + CTA. 60-sec: case study + tripwire. 90-sec: 3 lies + proof + full offer</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>LinkedIn outreach with video</strong> &mdash; Connection request + video message sequence. "I made this for staffing agency owners like you."</div></li>
+        <li class="asset-item"><span class="bullet"></span><div><strong>Competitive differentiation one-pager</strong> &mdash; PDF: "AI Integrators vs. Bullhorn AI vs. Sense vs. Herefish." Why a human + AI beats a SaaS tool</div></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- PRODUCT LADDER -->
+  <div class="sec-label"><span>Product Ladder &mdash; Built From 1 Demo Video</span></div>
+  <div class="ladder">
+    <h3>The Ascension Path</h3>
+    <div class="ladder-steps">
+      <div class="ladder-step">
+        <div class="step-price">FREE</div>
+        <div class="step-name">Staffing AI Playbook</div>
+        <div class="step-desc">Lead magnet PDF. Opt-in gate to the funnel</div>
+      </div>
+      <div class="ladder-arrow">&rarr;</div>
+      <div class="ladder-step">
+        <div class="step-price">$47</div>
+        <div class="step-name">AI-Staffing Starter Kit</div>
+        <div class="step-desc">Tripwire. 5 templates + video walkthrough</div>
+      </div>
+      <div class="ladder-arrow">&rarr;</div>
+      <div class="ladder-step">
+        <div class="step-price">$1,000</div>
+        <div class="step-name">Tier 1: Starter</div>
+        <div class="step-desc">One-time + $300/mo. 3 core automations</div>
+      </div>
+      <div class="ladder-arrow">&rarr;</div>
+      <div class="ladder-step">
+        <div class="step-price">$2,000</div>
+        <div class="step-name">Tier 2: Professional</div>
+        <div class="step-desc">One-time + $300/mo. Full AI-Human Stack</div>
+      </div>
+      <div class="ladder-arrow">&rarr;</div>
+      <div class="ladder-step">
+        <div class="step-price">$5,000</div>
+        <div class="step-name">Tier 3: Enterprise</div>
+        <div class="step-desc">One-time + $300/mo. 90-day deployment</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOTALS -->
+  <div class="count-row">
+    <div class="count-cell"><div class="count-num">8</div><div class="count-lbl">Promo</div></div>
+    <div class="count-cell"><div class="count-num">6</div><div class="count-lbl">Lead Gen</div></div>
+    <div class="count-cell"><div class="count-num">5</div><div class="count-lbl">Website</div></div>
+    <div class="count-cell"><div class="count-num">5</div><div class="count-lbl">Products</div></div>
+    <div class="count-cell"><div class="count-num">5</div><div class="count-lbl">Community</div></div>
+    <div class="count-cell"><div class="count-num">6</div><div class="count-lbl">Sales</div></div>
+  </div>
+  <div class="total-bar">
+    <div class="total-num">35+</div>
+    <div class="total-lbl">Total Sales Assets From 1 Demo Video</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p><strong>AI Integrators</strong> &mdash; Staffing & Recruiting Vertical<br>
+  1 Demo Video &rarr; Claude Code &rarr; 35+ Assets &rarr; Full Sales Engine</p>
+</div>
+
+</body>
+</html>
