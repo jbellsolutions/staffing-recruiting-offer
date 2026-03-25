@@ -314,7 +314,7 @@ AI Integrators
 
 [FIRST NAME],
 
-Mark runs a 30-person IT staffing agency. Good team, great culture, solid clients. And he'd been stuck at 90 placements a quarter for two years.
+Mark runs a 30-person IT staffing agency. Good team, great culture, solid clients. And he'd been stuck at 60 placements a month for two years.
 
 "I know what good looks like," he told me on our first call. "My team is good. But we can't break through this ceiling."
 
@@ -328,9 +328,9 @@ That was the moment Mark understood: the ceiling wasn't his team. It was the sys
 
 **Month 2:** Mark called me, confused. "My recruiters are... different. They're happy. Two people who'd given their resignations just took them back."
 
-**Month 3:** 90 placements/quarter became 121. Same team. Same clients. Same office. The additional 31 placements generated roughly $186K in gross profit.
+**Month 3:** 60 placements/month became 108. Same team. Same clients. Same office. Additional revenue: $285K in placement fees over 90 days.
 
-Their cost for the AI-trained support? About $600/month total.
+Their cost for the AI-trained support? $300/month.
 
 Mark told me something I'll never forget: "You didn't give me more people. You gave my people back to me."
 

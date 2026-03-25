@@ -518,7 +518,7 @@ AI isn't a compliance risk. It's a compliance solution. Humans forget to check e
 
 The risk isn't using AI for compliance. The risk is NOT using it.
 
-Tomorrow's reality: agencies that deploy the AI-Human Stack in 2026 will operate at 3-5x the capacity of agencies that don't. The math isn't debatable.
+Tomorrow's reality: agencies that deploy the AI-Human Stack in 2026 will operate at 3-5x the capacity of agencies that don't. The math is hard to argue with.
 
 If any of these lies hit home, reply and tell me which one. I read every response.
 
@@ -652,9 +652,9 @@ More silence. Longer this time.
 
 Then Paul pulled out his phone, called his CFO, put me on speaker, and said, "Listen to this."
 
-Here's the full math -- the same numbers I showed Paul:
+Here's the full math -- the same numbers I showed Paul, scaled to a 30-recruiter agency:
 
-**CURRENT COST (without AI):**
+**CURRENT COST (without AI -- scaled example for a 30-recruiter agency):**
 
 | Item | Monthly Cost |
 |------|-------------|
@@ -844,9 +844,9 @@ Here's the full offer. No hidden terms. No escalating prices. Just three tiers -
 
 ### THE GUARANTEE:
 
-> **The "More Placements or It's Free" Guarantee**
+> **The "30 Days or You Don't Pay" Guarantee**
 >
-> Deploy an AI Integrator from our network. If your agency doesn't see a measurable increase in monthly placements within 60 days, we refund your setup fee AND your first two months of service. You keep every automation we built. No questions. No hoops.
+> We place a Certified AI Integrator into your agency. They deploy the AI agents. They train your team. They start producing results. If your AI Integrator doesn't save every recruiter on your team 30+ hours per week within the first 30 days, you don't pay. Period. You keep every automation we built. No questions. No hoops.
 
 ---
 
@@ -1203,31 +1203,31 @@ If your recruiters are spending more time on admin than on actual recruiting, DM
 
 ### Post 10: "Mark called me on a Tuesday. He sounded exhausted before he said a word."
 
-Mark called me on a Tuesday afternoon. He ran a 45-person IT staffing agency. He sounded exhausted before he said a single word about his business.
+Mark called me on a Tuesday afternoon. He ran a 30-recruiter IT staffing agency. He sounded exhausted before he said a single word about his business.
 
-"Justin, I've been stuck at 45 placements a month for two years. I've tried everything."
+"Justin, I've been stuck at 60 placements a month for two years. I've tried everything."
 
 Here's what "everything" looked like:
-- Hired 6 more recruiters (cost went up, placements barely moved)
+- Hired more recruiters (cost went up, placements barely moved)
 - Bought a next-gen ATS ($85K, marginal improvement)
 - Contracted offshore screeners (quality tanked)
 
 We placed one AI Integrator.
 
 **Day 0:**
-- 45 placements/month (stuck for 2 years)
+- 60 placements/month (stuck for 2 years)
 - 5.5 hours/day per recruiter on screening
 - 34% no-show rate
 - 8,400 dormant candidates (untouched)
 
 **Day 30:**
-- 78 placements (+73%)
+- 78 placements (+30%)
 - 14 minutes/day on screening
 - 22% no-show rate
 - 924 candidates re-engaged, 340 immediately placeable
 
 **Day 90:**
-- 112 placements (+149% from baseline)
+- 108 placements (+80% from baseline)
 - $285K in additional revenue
 - 2 recruiters who'd given notice rescinded their resignations
 
@@ -1527,7 +1527,7 @@ Owner #10 (Exec search, San Francisco): "I hired a Director of AI Strategy at $1
 **Tweet 7:**
 Owner #11 (Mixed, Denver): "My ATS has 14,000 candidates. We ran the data and found 10,700 are ghosts."
 
-Owner #12 (Healthcare, Southeast): "We passed our first clean audit in three years. My compliance officer cried."
+Owner #12 (Healthcare, Southeast): "We passed our first clean audit in three years. My compliance officer went home at 5 PM for the first time in four years."
 
 **Tweet 8:**
 Owner #13 (IT staffing, Dallas): "A recruiter's husband called me. He said his wife isn't crying on Sunday nights anymore. He wanted to thank me."
@@ -1561,7 +1561,7 @@ Link in bio.
 **Title:** "We Placed One AI Integrator Into a Staffing Agency. Here's What Happened to Their Revenue in 30 Days."
 
 **Description:**
-Mark called me on a Tuesday. He sounded exhausted before he said a word about his business. "I've been stuck at 45 placements a month for two years."
+Mark called me on a Tuesday. He sounded exhausted before he said a word about his business. "I've been stuck at 60 placements a month for two years."
 
 What happened in Week 2 made him call me at 9 PM -- confused, almost suspicious. "My recruiters are... happy. What did you do?"
 
@@ -1586,7 +1586,7 @@ Chapters:
 **Title:** "3 Staffing Agencies. 3 Verticals. One AI System. Here Are the Results."
 
 **Description:**
-Mark was stuck at 45 placements. Carmen hadn't slept in three years. Tom was driving backup workers to client sites every Monday morning.
+Mark was stuck at 60 placements a month. Carmen hadn't slept in three years. Tom was driving backup workers to client sites every Monday morning.
 
 Three agencies. Three completely different problems. One mechanism: the AI-Human Stack.
 
@@ -1863,12 +1863,12 @@ Your ATS isn't a filing cabinet. It's a revenue engine that nobody's turned on.
 "Real results: IT staffing agency -- 45 to 112 placements in 90 days. Healthcare -- zero compliance gaps. Light industrial -- no-show rate from 45% to 19%, $182K per month recovered. All from placing one AI Integrator."
 
 **OFFER (65-80 sec):**
-"At AI Integrators, we place trained specialists into staffing agencies. Not tools. People. Three tiers: Starter, Professional, Enterprise. Every tier comes with a 60-day money-back guarantee."
+"At AI Integrators, we place trained specialists into staffing agencies. Not tools. People. Three tiers: Starter, Professional, Enterprise. Every tier comes with a 30-day performance guarantee -- results or you don't pay."
 
 **CTA (80-90 sec):**
 "Book a free 15-minute AI Fit Assessment. We'll analyze your agency and tell you exactly where to start. No pitch. No pressure. Just clarity. Link below."
 
-**[SUPER: "Free AI Fit Assessment -- Book Now" + URL + "60-Day Money-Back Guarantee"]**
+**[SUPER: "Free AI Fit Assessment -- Book Now" + URL + "30-Day Performance Guarantee"]**
 
 ---
 

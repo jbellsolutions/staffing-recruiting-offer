@@ -298,15 +298,15 @@ We didn't come up with this in a conference room. We built it in the field, insi
 
 ---
 
-#### CASE STUDY #1: Mike's IT Staffing Agency
+#### CASE STUDY #1: Mark's IT Staffing Agency
 
-Mike called me on a Tuesday afternoon. I could hear the exhaustion in his voice before he said a single word about his business.
+Mark called me on a Tuesday afternoon. I could hear the exhaustion in his voice before he said a single word about his business.
 
-"Justin, I've been stuck at 90 placements a quarter for two years and I'm losing my mind."
+"Justin, I've been stuck at 60 placements a month for two years and I'm losing my mind."
 
-Mike ran a mid-size IT staffing agency -- 12 recruiters, solid client relationships, good reputation. But he'd hit a ceiling he couldn't break through, and he'd already tried everything to get past it.
+Mark ran a 30-person IT staffing agency -- solid client relationships, good reputation, great culture. But he'd hit a ceiling he couldn't break through, and he'd already tried everything to get past it.
 
-He'd hired six more recruiters the previous year. Cost went up. Placements barely moved. He'd invested $85K in a "next-gen ATS." Marginal improvement. He'd contracted an offshore screening team. Quality dropped. Candidates complained. Same wall, different angle, same result.
+He'd hired more recruiters the previous year. Cost went up. Placements barely moved. He'd invested $85K in a "next-gen ATS." Marginal improvement. He'd contracted an offshore screening team. Quality dropped. Candidates complained. Same wall, different angle, same result.
 
 I asked him one question: "How much time are your recruiters spending on resume screening?"
 
@@ -316,7 +316,7 @@ I told him to find out and call me back.
 
 He called back in an hour. The number was 5.5 hours per recruiter per day.
 
-I let that hang in the air. "Mike," I said, "you have 12 recruiters billing at $55-80K a year. They're spending 69% of their day reading resumes. You're running a $450,000-a-year resume-reading operation that happens to also do some recruiting on the side."
+I let that hang in the air. "Mark," I said, "your recruiters are spending 69% of their day reading resumes. You're running a massive resume-reading operation that happens to also do some recruiting on the side."
 
 He went quiet for about ten seconds. Then: "When can you start?"
 
@@ -326,24 +326,24 @@ He went quiet for about ten seconds. Then: "When can you start?"
 - Candidate Sourcing Pipeline integrated across their ATS, LinkedIn Recruiter, and three job boards
 - Automated Candidate Summary Generator -- AI writes submittal summaries in the client's preferred format
 
-**Week 1:** The AI Integrator audited Mike's operation and found three bottlenecks beyond just screening: 8,400 dormant candidates in the ATS that nobody had touched in over a year, and a no-show rate of 34% that nobody was tracking the predictive signals for.
+**Week 1:** The AI Integrator audited Mark's operation and found three bottlenecks beyond just screening: 8,400 dormant candidates in the ATS that nobody had touched in over a year, and a no-show rate of 34% that nobody was tracking the predictive signals for.
 
-**Week 2:** Resume screening went live. Screening time dropped from 5.5 hours to 14 minutes per recruiter per day. Mike called me that Wednesday night. "Something weird is happening," he said. "My recruiters are actually smiling. They're making more calls than I've seen in years." What happened was simple: they finally had time to do the job they were hired for.
+**Week 2:** Resume screening went live. Screening time dropped from 5.5 hours to 14 minutes per recruiter per day. Mark called me that Wednesday night. "Something weird is happening," he said. "My recruiters are actually smiling. They're making more calls than I've seen in years." What happened was simple: they finally had time to do the job they were hired for.
 
 **Week 3:** The ATS re-engagement campaign launched. 8,400 dormant candidates got personalized outreach. 11% responded. 340 were immediately placeable -- candidates the agency had been paying Indeed to replace.
 
 **Week 4:** No-show prediction engine went live. Flagged 47 at-risk placements in the first week. The team intervened on 38 of them. 29 showed up who statistically wouldn't have.
 
 **The Results (Within 90 Days):**
-- **Day 30:** 45 placements/month jumped to 78
+- **Day 30:** 60 placements/month jumped to 78
 - **Day 60:** 78 climbed to 97
-- **Day 90:** 97 reached 112
+- **Day 90:** 97 reached 108
 - **Same team. Same ATS. Same market. Same office.**
 - Additional revenue: $285K in placement fees over 90 days
 
-But the result that mattered most to Mike happened in month two. Two of his top recruiters -- people who'd given their resignations because they were burned out -- rescinded their notices. They weren't leaving anymore. Because the job was worth staying for again.
+But the result that mattered most to Mark happened in month two. Two of his top recruiters -- people who'd given their resignations because they were burned out -- rescinded their notices. They weren't leaving anymore. Because the job was worth staying for again.
 
-Mike told me something I'll never forget: "You didn't give me more people. You gave my people back to me."
+Mark told me something I'll never forget: "You didn't give me more people. You gave my people back to me."
 
 ---
 
