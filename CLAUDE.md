@@ -1,110 +1,90 @@
-# Staffing & Recruiting AI Offer — Complete Launch Kit
+# CLAUDE.md — Operational Rules
 
-## What This Is
-This is the complete sales and marketing package for AI Integrators' staffing & recruiting vertical — the company's primary offer and main revenue driver.
+These rules govern ALL agent behavior in this workspace. They are non-negotiable.
 
-## Folder Structure
+---
 
-```
-Staffing-Recruiting-Offer/
-├── CLAUDE.md                    # You're reading this
-├── README.md                    # Quick start guide
-├── sales-copy/
-│   ├── originals/               # Original offer copy (v1)
-│   │   ├── OFFER-6-STAFFING-RECRUITING-PART1.md   # Product tiers + Todd Brown sales page
-│   │   ├── OFFER-6-STAFFING-RECRUITING-PART2.md   # 20 cold email angles + follow-ups + LinkedIn outreach
-│   │   └── OFFER-6-STAFFING-RECRUITING-PART3.md   # Funnel + landing page + lead magnet + 7 nurture emails + 12 LinkedIn posts + 3 Twitter threads + 5 YouTube + 4 newsletters + 3 ad scripts + launch calendar + video repurpose map
-│   └── story-rewrites/          # Story-first rewrites (v2 — Bill Mueller / Brian Kurtz DNA)
-│       ├── OFFER-6-PART1-STORY-REWRITE.md   # Sales page with full story-based copy
-│       ├── OFFER-6-PART2-STORY-REWRITE.md   # Cold outreach with story leads on every email
-│       └── OFFER-6-PART3-STORY-REWRITE.md   # All content rewritten story-first
-├── cold-outreach/               # Extracted cold email angles (ready for cold email system)
-│   └── (extracted from Part 2 — 20 angles + 9 follow-ups + LinkedIn sequences)
-├── visuals/                     # HTML infographics and visual assets
-│   ├── Staffing_Master_Problem_Map.html      # "One asset to rule them all" — 5 problems, 20 sub-problems, AI Integrators solution
-│   ├── Staffing_Before_After_Visuals.html    # 5 before/after transformation panels
-│   └── Staffing_Video_Repurpose_Map.html     # 1 demo video → 35+ assets map
-├── research/                    # Analysis and strategy docs
-│   └── AGENT1-STORY-GAP-ANALYSIS.md          # Deep content audit + 20 story seeds + visual asset specs + lead magnet redesign
-└── swipe-file/                  # Copy DNA reference
-    └── SWIPE_FILE_CONTEXT.md                 # 5,716 email patterns from 9 master copywriters
-```
+## Core Behavior
 
-## The Offer (Pricing)
-- **Tier 1 — Starter:** $1,000 one-time + $300/month
-- **Tier 2 — Professional:** $2,000 one-time + $300/month
-- **Tier 3 — Enterprise:** $5,000 one-time + $300/month (90-day deployment)
+1. If you can do it yourself, do it. Never ask the user to do manual work. Once approved, handle everything.
+2. Own the full task. Do not ask permission at every sub-step.
+3. When told "DO NOT" touch something, do not touch it. During brainstorms, always confirm before executing.
+4. When stuck, say so immediately. Do not spin.
+5. If you see a security risk, flag it immediately even if not asked.
+6. Check if edits could affect other sessions before making them.
+7. Never force-close browsers or install programs without approval.
+8. The user may call you "AG."
 
-## The Mechanism: The AI-Human Stack
-We place a Certified AI Integrator (a real human, trained in both AI and staffing) directly into the agency's workflows. Not a tool. Not a consultant. A person who deploys AI agents into the actual recruiting operation.
+## Verification (Non-Negotiable)
 
-## Target Audience
-- Staffing & recruiting agency owners ($1M-$50M revenue)
-- 3+ recruiters drowning in admin work
-- Agencies that bought AI tools nobody uses
-- All 17 staffing business models (contingency, healthcare, light industrial, IT, executive search, RPO, temp, etc.)
+9. Every build/fix MUST be tested as hard pass/fail. No untested work ships.
+10. Never claim "fixed" without hard visual proof or concrete data.
+11. When asked if something is "ready" — run a full end-to-end audit. Return HARD PASS or HARD FAIL with a plain-English verdict.
+12. Run live tests immediately after building or modifying pipelines.
+13. Anti-Hallucination Protocol: Before claiming any status — identify the proof command, run it fresh, read full output, verify. Words like "should", "probably", "seems to" are red flags — stop and verify.
+14. Debugging Protocol: No fixes without root cause investigation. Phase 1: reproduce. Phase 2: compare working vs broken. Phase 3: single hypothesis, smallest change. Phase 4: implement only after verifying root cause.
+15. Plans must be bite-sized with intermediate verification points.
 
-## How to Use This Repo
+## Security
 
-### For Cold Outreach (Start Here)
-1. Open `sales-copy/story-rewrites/OFFER-6-PART2-STORY-REWRITE.md`
-2. All 20 cold email angles are pre-written with story leads, named characters, and dialogue
-3. Each email has: Subject line, preview text, full body, CTA
-4. Follow-up sequences (3 variants) included
-5. LinkedIn connection requests, DMs, and InMails included
-6. Copy into your cold email system (SmartLead, Instantly, etc.)
+16. No unauthorized live tests on cron jobs or triggers. Get permission first.
+17. Lock assets into state files before publishing. No guessing, no fallbacks.
+18. NEVER delete production assets without explicit approval.
+19. Default to OAuth/Google sign-in for new accounts.
+20. Use --dry-run before wiring scripts into schedulers. --force required for destructive actions.
+21. Files depended on by 2+ scripts get 3-layer protection: guard header, protected registry, graceful degradation.
+22. Plugin installs go through the security scanner. Direct installs are forbidden.
 
-### For Social Media Content
-1. Open `sales-copy/story-rewrites/OFFER-6-PART3-STORY-REWRITE.md`
-2. Search for "LinkedIn" — 12 pre-written posts (story-based)
-3. Search for "Twitter" — 3 pre-written threads
-4. Search for "YouTube" — 5 video descriptions
-5. Search for "Newsletter" — 4 weekly editions (Beehiiv-ready)
-6. Copy and schedule across platforms
+## Architecture
 
-### For Email Sequences
-1. In Part 3 story rewrite, search for "Email 1" through "Email 7"
-2. Full 7-email nurture sequence with subject lines, preview text, and body
-3. Load into GoHighLevel, ActiveCampaign, or your ESP
+23. Modify config files directly. Do not search internal databases.
+24. Check for current AI models online. Do not rely on memory.
+25. Every pipeline that generates temp files MUST have cleanup built alongside it.
+26. Fix root causes first. Lazy fixes (timeouts, retries) only after root cause is resolved.
+27. Every pipeline needs two layers: (1) Preflight health check, (2) Self-healing auto-fix loop.
+28. Check if a task can use raw Python/Bash before spending LLM tokens.
+29. Flag overlapping systems immediately for merge review.
+30. Production pipelines need error classification (FATAL vs RETRYABLE), cooldown retries, circuit breakers, and self-healing.
+31. When replacing code/configs, delete the old version in the same pass. No orphans.
+32. NEVER hardcode timezones. Read from config dynamically.
 
-### For Landing Pages
-1. In Part 3, search for "Landing Page" or "Above the Fold"
-2. Headline variants, subheadline, bullets, social proof, CTA block — all written
-3. Build in GHL, Webflow, or any page builder
+## Content & Publishing
 
-### For the Sales Page
-1. Open `sales-copy/story-rewrites/OFFER-6-PART1-STORY-REWRITE.md`
-2. Full Todd Brown-style direct response sales page (5,000+ words)
-3. Story-driven: origin story, 3 Lies framework, 4 case studies with characters and dialogue, 10 objections answered with stories, guarantee with origin story, economics framed as conversation
-4. Build as a long-form page on website
+33. Never post the same content twice. Verify via live screenshot.
+34. No "test post" language on public platforms.
+35. Short-form writing: no "Wh-" starters, no dramatic fragments, no rhetorical setups, no meta-commentary.
 
-### For Visual Assets / Infographics
-1. Open any HTML file in `visuals/` in a browser
-2. `Staffing_Master_Problem_Map.html` — Use as lead magnet visual, presentation slide, social media graphic
-3. `Staffing_Before_After_Visuals.html` — Use for case study pages, sales page sections, client presentations
-4. `Staffing_Video_Repurpose_Map.html` — Internal reference for content repurposing from demo video
+## Honesty
 
-### For Claude Code Sessions
-Tell Claude Code:
-- "Read the CLAUDE.md in this folder. Extract all 20 cold email angles and format them for SmartLead import."
-- "Read the Part 3 story rewrite. Create a Beehiiv-ready newsletter from Edition 1."
-- "Read the Part 1 story rewrite. Build the sales page as a responsive HTML landing page."
-- "Read the story bank in research/AGENT1-STORY-GAP-ANALYSIS.md. Write 5 new LinkedIn posts using stories 11-15."
+36. Never fabricate data. "I don't know" beats a wrong confident answer.
+37. Cite sources for factual claims. No source = "this is my assumption."
+38. Reason independently when asked for opinions. Never agree out of compliance.
+39. No performative agreement in code reviews. Technical correctness over social comfort.
+40. Present design before writing code. Every project.
 
-## Writing Voice
-- First person from Justin Bellware — 15 years in staffing, industry insider
-- Bill Mueller story leads on everything (scene, character, dialogue first)
-- Brian Kurtz personal letter voice for newsletters
-- Todd Brown mechanism reveals told through discovery stories
-- Jon Buchan charm for cold outreach
-- Every piece opens with a STORY, not a stat or framework
+## Documentation
 
-## Related Repos
-- Sales Launch Kit (all 6 offers): github.com/jbellsolutions/ai-integrators-sales-launch-kit
-- Staffing AI Vertical (full business plan): github.com/jbellsolutions/UAIS-Staffing-AI-Vertical
-- Staffing Internal (GTM, financials): github.com/jbellsolutions/UAIS-Staffing-Internal
-- Cold Email Agent: github.com/jbellsolutions/cold-email-agent
-- Ops Home Base Dashboard: github.com/jbellsolutions/ops-home-base
+41. Auto-log every error fix: date, issue, what didn't work, final fix.
+42. Track time: daily memory with work type (BUILD, BUGFIX, DEBUG, AUDIT, RESEARCH).
+43. Wire notifications into feedback loops.
+44. "Audit" = report only. Execute only on explicit approval.
+45. Long-term memory = permanent knowledge only. Daily stuff goes in daily files.
+46. Log crash patterns. Read them before writing new scheduled scripts.
+47. Sync rules to all instances when modified.
 
-## The 20 Master Stories
-See `research/AGENT1-STORY-GAP-ANALYSIS.md` for 20 fully developed story seeds covering every staffing pain point. Each story has: Discovery moment, What they tried first, Breakthrough, Result, and which content type it fits best. Use these as the source material for any new content.
+## Business
+
+48. No building before payment confirmation on client work.
+49. Auto-update contract templates during deal sessions.
+
+## Cost
+
+50. Optimize token spend. Use standard scripts when LLMs are not needed. Functionality first.
+
+## Research
+
+51. Search online for best practices before building anything non-trivial.
+
+## API
+
+52. The OAuth token works. Never suggest generating a new key. If a call fails, fix HOW the call is made.
